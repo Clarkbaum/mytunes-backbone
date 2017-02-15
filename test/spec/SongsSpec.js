@@ -1,10 +1,11 @@
 describe('Songs', function() {
-  xdescribe('when fetching song data from Parse', function() {
+  describe('when fetching song data from Parse', function() {
     var songs, fakeSongData, fakeResponse, xhr, requests;
 
     beforeEach(function() {
       requests = [];
       xhr = sinon.useFakeXMLHttpRequest();
+      console.log(xhr)
       xhr.onCreate = function(request) {
         requests.push(request);
       };
@@ -32,7 +33,7 @@ describe('Songs', function() {
     it('should GET song data from Parse when initialized', function() {
       songs = new Songs();
       expect(requests[0].method).to.equal('GET');
-      expect(requests[0].url).to.include('https://api.parse.com/1/classes/songs');
+      expect(requests[0].url).to.include('http://parse.atx.hackreactor.com/mytunes/classes/songs');
     });
 
     it('should populate itself with the data returned from the Parse server', function() {

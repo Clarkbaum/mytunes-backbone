@@ -5,6 +5,7 @@ var LibraryView = Backbone.View.extend({
 
   initialize: function() {
     this.render();
+    this.collection.on('reset', this.render, this);
 
   },
 
@@ -18,6 +19,12 @@ var LibraryView = Backbone.View.extend({
         return new LibraryEntryView({model: song}).render();
       })
     );
+  },
+
+  respond: function(a, b, c) {
+    console.log('a ', a);
+    console.log('b ', b);
+    console.log('c ', c);
   }
 
 });

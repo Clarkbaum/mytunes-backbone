@@ -32,7 +32,7 @@ describe('LibraryView', function() {
     expect(view.$el.children()[0].tagName).to.equal('TH');
   });
   
-  xdescribe('when fetching song data from Parse', function() {
+  describe('when fetching song data from Parse', function() {
     var fakeResponse, requests, xhr;
 
     beforeEach(function() {
@@ -54,7 +54,8 @@ describe('LibraryView', function() {
       view = new FakeLibraryView({ collection: new Songs() });
       expect(view.render).to.have.been.calledOnce;
 
-      requests[0].respond(200, { 'Content-Type': 'application/json' }, fakeResponse);
+      //requests[0].respond(200, { 'Content-Type': 'application/json' }, fakeResponse);
+      view.collection.reset(fakeSongs.models);
       expect(view.render).to.have.been.calledTwice;
     });
   });
