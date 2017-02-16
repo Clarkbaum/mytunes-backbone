@@ -14,7 +14,6 @@ var SongQueue = Backbone.Collection.extend({
     }, this)
 
     this.on('dequeue', function(event){
-      console.log("teventf: ",event)
       this.remove(event.cid)
     });
   },
