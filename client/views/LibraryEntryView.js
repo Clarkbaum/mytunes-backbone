@@ -13,6 +13,11 @@ var LibraryEntryView = Backbone.View.extend({
   },
 
   render: function() {
+    console.log(this.model.attributes.artwork_url)
+    if (this.model.attributes.artwork_url) {
+      return this.$el.html(this.template(this.model.attributes))
+      .prepend('<td><img width=80 height=80 src="' + this.model.attributes.artwork_url + '"></td>');
+    }
     return this.$el.html(this.template(this.model.attributes));
   }
 
