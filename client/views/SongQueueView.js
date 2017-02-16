@@ -5,7 +5,11 @@ var SongQueueView = Backbone.View.extend({
 
   initialize: function() {
     this.render();
+    this.collection.on('add ended dequeue', function() {
+      this.render();
+    }, this);
   },
+
 
   render: function() {
     this.$el.children().detach();//might not need this. read about it when we feel less lazy
